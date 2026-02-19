@@ -1,0 +1,29 @@
+;Union Recursive Function
+
+(defun is_member (n L)
+  (cond
+    ((null L) nil)
+    ((equal n (car L)) t);if they are equal pass
+    (t (is_member n (cdr L))); If no other condition, check the next part of the list
+  );cond
+);is_member
+
+(defun my-union (L1 L2)
+  (cond
+    ((null L1) L2);If L1  is empty just return L2
+    ((is_member (car L1) L2 )
+        (my-union (cdr L1) L2)); If current spot of L1 and L2 are equal handle it, continue on
+    (t
+      (cons (car L1) ;Fallthrough add L1 to L2, and recursion
+          (my-union  (cdr L1) L2)
+      );cons
+    );t
+  
+  );cond
+);my-union
+
+
+
+(print (my-union '(1 2) '(3 4 5)))
+(print (my-union '() '(3 4 5)))
+(print (my-union '(a b) '(a b c)))
