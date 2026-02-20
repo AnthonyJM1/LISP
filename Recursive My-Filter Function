@@ -1,0 +1,16 @@
+(defun my-filter (p L)
+  (cond
+    ((null L) nil) ;Base for no elements  to be processed
+    ((funcall p (car L));if the first element is true keep it
+      (cons (car L)
+          (my-filter p (cdr L))) ;Skip and filter the rest
+    );funcall keeps incoming value
+    (t
+      (my-filter p (cdr L)) ; else skip and continue filtering
+    ); t
+  );cond
+);defun my-filter
+
+(print (my-filter #'oddp '(1 2 3 4 5))) ;(1 3 5)
+(print (my-filter #'evenp '(1 2 3 4 5 6))) ; (2 4 6)
+(print (my-filter #'(lambda (x) (> x 3)) '(1 2 3 4 5 6))); (4 5 6)
