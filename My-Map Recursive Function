@@ -1,0 +1,15 @@
+(defun my-map (f L)
+  (cond
+    ((null L) nil) ;base case
+    (t
+      (cons
+        (funcall f (car L)) ;apply f to first
+        (my-map f (cdr L))  ;recurse on rest
+      
+      );cons
+    );t
+  );cond
+);my-map
+(print  (my-map #'(lambda (x) (* x x)) '(1 2 3 4))) ; 1 4 9 16
+(print (my-map #'1+ '(5 6 7))); 6 7 8
+(print (my-map #'1+ '())) ; NIL
