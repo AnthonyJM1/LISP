@@ -1,0 +1,11 @@
+(defun apply_twice (f x)
+  (cond 
+    ((null f) nil)
+    (t
+      (let((first (funcall f x)))
+        (funcall f first))
+    );t
+  );cond
+);defun apply_twice
+
+(print (apply_twice #'(lambda (y)(* y 2)) 3));=> 12
