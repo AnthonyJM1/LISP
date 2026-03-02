@@ -1,0 +1,13 @@
+(defun filter_even (L)
+  (cond 
+      ((null L)  nil) ;If the list is null
+      ((= (mod (car L) 2) 0) ;If no remainder, even, add to L
+        (cons (car L)
+            (filter_even (cdr L))))
+      (t ;if remainder, keep going through the original list
+        (filter_even (cdr L)))
+      
+    );cond
+);defun filter_even
+
+(print (filter_even '(1 2 3 4 5 6)));; (2 4 6)
