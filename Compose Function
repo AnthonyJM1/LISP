@@ -16,6 +16,7 @@
       
 );defun compose
 
+(print(funcall (compose #'(lambda (x) (* x 0)) #'(lambda (x) (+ x 0))) 0)); =>0 Base Case
 (print(funcall (compose #'(lambda (x) (* x 10)) #'(lambda (x) (+ x 1))) 4)); => 50
 (print(funcall (compose #'(lambda (x) (* x 20)) #'(lambda (x) (+ x 2))) 8)); => 200
-(print(funcall (compose #'(lambda (x) (* x 30)) #'(lambda (x) (+ x 3))) 12)); => 450
+
