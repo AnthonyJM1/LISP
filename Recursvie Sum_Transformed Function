@@ -1,0 +1,11 @@
+(defun sum_transformed(L f)
+  (cond
+  ((null L) 0) ;Return 0 if empty
+  (t
+    (+ (apply f (list (car L)))
+      (sum_transformed (cdr L) f))
+    );t
+  );cond
+);defun
+
+(print (sum_transformed '(1 2 3) #'(lambda (x) (* x x)))); => 14
