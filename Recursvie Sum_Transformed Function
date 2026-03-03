@@ -8,4 +8,6 @@
   );cond
 );defun
 
+(print (sum_transformed '() #'(lambda (x) (* x x)))); => 0 Base Case
 (print (sum_transformed '(1 2 3) #'(lambda (x) (* x x)))); => 14
+(print (sum_transformed '(2 3 4) #'(lambda (x) (* x x)))); => 29
